@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringCalculator.Kata", "StringCalculator.Kata\StringCalculator.Kata.csproj", "{E84FBE84-DC8F-4565-A9CD-C9A6EBB4FB1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringCalculator.Kata.Tests", "StringCalculator.Kata.Tests\StringCalculator.Kata.Tests.csproj", "{9200DE73-4609-4079-BD9E-E66419EF83DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Folder", "Solution Folder", "{62EE0E73-310F-453A-945F-1A61AE4BB103}"
+	ProjectSection(SolutionItems) = preProject
+		Kata.pdf = Kata.pdf
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E84FBE84-DC8F-4565-A9CD-C9A6EBB4FB1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E84FBE84-DC8F-4565-A9CD-C9A6EBB4FB1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E84FBE84-DC8F-4565-A9CD-C9A6EBB4FB1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E84FBE84-DC8F-4565-A9CD-C9A6EBB4FB1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9200DE73-4609-4079-BD9E-E66419EF83DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9200DE73-4609-4079-BD9E-E66419EF83DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9200DE73-4609-4079-BD9E-E66419EF83DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9200DE73-4609-4079-BD9E-E66419EF83DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
