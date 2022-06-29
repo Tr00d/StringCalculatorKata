@@ -3,6 +3,8 @@
 public record CalculationLine(int Index, string Value)
 {
     private const string DelimiterOverride = "//";
+    private const char CustomDelimiterOpening = '[';
+    private const char CustomDelimiterClosing = ']';
 
     public bool IsFirstLine() => this.Index == default;
 
@@ -11,7 +13,7 @@ public record CalculationLine(int Index, string Value)
     public IEnumerable<string> GetCustomSeparators() =>
         this.Value
             .Replace(DelimiterOverride, string.Empty)
-            .Split(new[] { '[', ']' }, StringSplitOptions.RemoveEmptyEntries);
+            .Split(new[] { CustomDelimiterOpening, CustomDelimiterClosing }, StringSplitOptions.RemoveEmptyEntries);
 
     public IEnumerable<int> CalculateLine(IEnumerable<string> separators) =>
         this.Value
