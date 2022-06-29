@@ -61,4 +61,9 @@ public class CalculatorTest
     [InlineData("2,1001,1000", 1002)]
     public void ShouldReturnSum_GivenNumbersAboveThresholdAreIgnored(string numbers, int number) =>
         this.calculator.Add(numbers).Should().Be(number);
+
+    [Theory(DisplayName = "Should return sum given delimiter has multiple characters")]
+    [InlineData("//[***]\n1***2***3***4", 10)]
+    public void ShouldReturnSum_GivenDelimiterHasMultipleCharacters(string numbers, int number) =>
+        this.calculator.Add(numbers).Should().Be(number);
 }

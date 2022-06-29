@@ -8,12 +8,17 @@ public record CalculationLine(int Index, string Value)
 
     public bool IsDelimiterOverriden() => this.Value.StartsWith(DelimiterOverride);
 
-    public char GetOverridenSeparator() =>
-        this.Value.Replace(DelimiterOverride, string.Empty)
-            .ToCharArray()
-            .First();
+    public string GetOverridenSeparator()
+    {
+        string delimiter = this.Value.Replace(DelimiterOverride, string.Empty);
+        return delimiter.Length > 1
+            ? GetCustomDelimiter(delimiter)
+            : delimiter;
+    }
 
-    public IEnumerable<int> CalculateLine(char separator) =>
+    private static string GetCustomDelimiter(string delimiter) => delimiter.Substring(1, delimiter.Length - 2);
+
+    public IEnumerable<int> CalculateLine(string separator) =>
         this.Value
             .Split(separator)
             .Select(value => int.TryParse(value, out int number) ? number : default);

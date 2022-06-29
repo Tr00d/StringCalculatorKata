@@ -1,9 +1,11 @@
 ﻿namespace StringCalculator.Kata;
 
-public record CalculationContext(IEnumerable<int> Numbers, char Separator)
+public record CalculationContext(IEnumerable<int> Numbers, string Separator)
 {
     private const int Threshold = 1000;
-    public static CalculationContext FromSeparator(char separator) => new(Enumerable.Empty<int>(), separator);
+
+    public static CalculationContext FromSeparator(char separator) =>
+        new(Enumerable.Empty<int>(), separator.ToString());
 
     public IEnumerable<int> GetNegativeNumbers() => this.Numbers.Where(IsNumberNegative);
 
