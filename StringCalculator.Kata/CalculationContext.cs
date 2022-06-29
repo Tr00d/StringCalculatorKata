@@ -1,11 +1,11 @@
 ﻿namespace StringCalculator.Kata;
 
-public record CalculationContext(IEnumerable<int> Numbers, string Separator)
+public record CalculationContext(IEnumerable<int> Numbers, IEnumerable<string> Separators)
 {
     private const int Threshold = 1000;
 
     public static CalculationContext FromSeparator(char separator) =>
-        new(Enumerable.Empty<int>(), separator.ToString());
+        new(Enumerable.Empty<int>(), new List<string> { separator.ToString() });
 
     public IEnumerable<int> GetNegativeNumbers() => this.Numbers.Where(IsNumberNegative);
 
@@ -22,6 +22,6 @@ public record CalculationContext(IEnumerable<int> Numbers, string Separator)
 
     public CalculationContext AppendLine(CalculationLine line) =>
         line.IsFirstLine() && line.IsDelimiterOverriden()
-            ? this with { Separator = line.GetOverridenSeparator() }
-            : this with { Numbers = this.Numbers.Concat(line.CalculateLine(this.Separator)) };
+            ? this with { Separators = this.Separators.Concat(line.GetCustomSeparators()) }
+            : this with { Numbers = this.Numbers.Concat(line.CalculateLine(this.Separators)) };
 }

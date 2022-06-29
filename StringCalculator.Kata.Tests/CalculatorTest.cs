@@ -66,4 +66,9 @@ public class CalculatorTest
     [InlineData("//[***]\n1***2***3***4", 10)]
     public void ShouldReturnSum_GivenDelimiterHasMultipleCharacters(string numbers, int number) =>
         this.calculator.Add(numbers).Should().Be(number);
+
+    [Theory(DisplayName = "Should return sum given multiple delimiters")]
+    [InlineData("//[*][%]\n1*2%3", 6)]
+    public void ShouldReturnSum_GivenMultipleDelimiters(string numbers, int number) =>
+        this.calculator.Add(numbers).Should().Be(number);
 }
