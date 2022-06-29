@@ -7,6 +7,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Folder", "Solution Folder", "{62EE0E73-310F-453A-945F-1A61AE4BB103}"
 	ProjectSection(SolutionItems) = preProject
 		Kata.pdf = Kata.pdf
+		.gitignore = .gitignore
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global
