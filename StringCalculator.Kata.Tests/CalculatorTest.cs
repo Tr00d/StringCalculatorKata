@@ -56,4 +56,9 @@ public class CalculatorTest
             .WithMessage(message)
             .Which.NegativeNumbers.Should().BeEquivalentTo(negativeNumbers);
     }
+
+    [Theory(DisplayName = "Should return sum given numbers above threshold are ignored")]
+    [InlineData("2,1001,1000", 1002)]
+    public void ShouldReturnSum_GivenNumbersAboveThresholdAreIgnored(string numbers, int number) =>
+        this.calculator.Add(numbers).Should().Be(number);
 }

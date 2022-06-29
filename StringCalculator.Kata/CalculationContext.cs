@@ -2,6 +2,7 @@
 
 public record CalculationContext(IEnumerable<int> Numbers, char Separator)
 {
+    private const int Threshold = 1000;
     public static CalculationContext FromSeparator(char separator) => new(Enumerable.Empty<int>(), separator);
 
     public IEnumerable<int> GetNegativeNumbers() => this.Numbers.Where(IsNumberNegative);
@@ -11,7 +12,9 @@ public record CalculationContext(IEnumerable<int> Numbers, char Separator)
     public int CalculateAmount() =>
         this.HasNegativeNumbers()
             ? throw NegativeNumbersException.FromCalculationContext(this)
-            : this.Numbers.Sum();
+            : this.GetValidNumbers().Sum();
+
+    private IEnumerable<int> GetValidNumbers() => this.Numbers.Where(number => number <= Threshold);
 
     private bool HasNegativeNumbers() => this.GetNegativeNumbers().Any();
 
